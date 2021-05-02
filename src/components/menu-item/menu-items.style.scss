@@ -1,6 +1,6 @@
 .menu-item {
   min-width: 30%;
-  height: 400px;
+  height: 360px;
   flex: 1 1 auto;
   display: flex;
   align-items: center;
@@ -21,7 +21,7 @@
     }
   }
   &.large {
-    height: 480px;
+    height: 400px;
   }
   &:first-child {
     margin-right: 7.5px;
