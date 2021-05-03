@@ -1,7 +1,6 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
-
 const firebaseConfig = {
   apiKey: "AIzaSyAAPrd_OqxG-0ErHbjVjVz3aPJPI9ei9Pg",
   authDomain: "ecommerce-react-tutorial.firebaseapp.com",
@@ -12,7 +11,6 @@ const firebaseConfig = {
   measurementId: "G-M1Z48KH2MZ",
 };
 firebase.initializeApp(firebaseConfig);
-
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 //Google Auth Util
