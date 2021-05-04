@@ -39,6 +39,7 @@ class Signup extends React.Component {
     this.setState({ [name]: value });
   };
   render() {
+    const { displayName, email, password, confirmPassword } = this.state;
     return (
       <div className="sign-up">
         <h2 className="title">Don't have an account ? </h2>
@@ -47,29 +48,29 @@ class Signup extends React.Component {
           <FormInput
             type="text"
             name="displayName"
-            label="Name"
-            value={this.state.displayName}
+            label="Display Name"
+            value={displayName}
             onChange={this.handleChange}
           />
           <FormInput
             type="text"
             name="email"
             label="Email"
-            value={this.state.email}
+            value={email}
             onChange={this.handleChange}
           />
           <FormInput
             type="password"
             name="password"
             label="Password"
-            value={this.state.password}
+            value={password}
             onChange={this.handleChange}
           />
           <FormInput
             type="password"
             name="confirmPassword"
             label="Confirm Password"
-            value={this.state.confirmPassword}
+            value={confirmPassword}
             onChange={this.handleChange}
           />
           <Button type="submit">Sign Up </Button>

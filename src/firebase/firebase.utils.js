@@ -10,6 +10,7 @@ const firebaseConfig = {
   appId: "1:935450960862:web:beedb08ae48ca98a11334f",
   measurementId: "G-M1Z48KH2MZ",
 };
+firebase.initializeApp(firebaseConfig);
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) {
     return;
@@ -34,7 +35,6 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   }
   return mydata;
 };
-firebase.initializeApp(firebaseConfig);
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 //Google Auth Util
