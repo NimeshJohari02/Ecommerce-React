@@ -19,7 +19,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   const snapshot = await mydata.get();
   if (!snapshot.exists) {
     // Crud is always possisble on DOC REFERENCE;
-    const { displayName, email } = userAuth;
+    const { email, displayName } = userAuth;
     const dateCreated = new Date();
     try {
       await mydata.set({
