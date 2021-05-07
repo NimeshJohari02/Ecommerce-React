@@ -15,7 +15,9 @@
     height: 360px;
     display: flex;
     flex-direction: column;
-    // overflow: scroll;
+    overflow: scroll;
+    overflow-x: hidden;
+    white-space: nowrap;
   }
 
   button {
