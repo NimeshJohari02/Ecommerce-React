@@ -5,6 +5,7 @@ import { persistReducer } from "redux-persist";
 import userReducer from "./user/user.reducer";
 import directoryReducer from "./directory/directory.reducer";
 import cartReducer from "./cart/cart.reducer";
+import { shopReducer } from "./shop/shop.reducer";
 const persistConfig = {
   key: "root",
   storage: storage,
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   user: userReducer,
   cart: cartReducer,
   directory: directoryReducer,
+  shop: shopReducer,
 });
 //In this large json object which would be our state the key would be the slicc that points towards
 // the reducer and the value is the value of the userReducer itself
