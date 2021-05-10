@@ -6,7 +6,9 @@ import Button from "../button/button.component";
 import CartItem from "../cart-item/cart-item.component";
 import "./cart-dropdown.styles.scss";
 import { withRouter } from "react-router-dom";
-const CartDropdown = ({ cartItems, history }) => (
+import { toggleCartHidden } from "../../redux/cart/cart.actions";
+//! connect by-default passes the dispatch as a prop for one time dispatces !!! Hence Destructures
+const CartDropdown = ({ cartItems, history, dispatch }) => (
   <div className="cart-dropdown">
     <div className="cart-items">
       {!cartItems.length ? (
@@ -18,7 +20,16 @@ const CartDropdown = ({ cartItems, history }) => (
       )}
     </div>
 
-    <Button onClick={() => history.push("/checkout")}>GO TO CHECKOUT</Button>
+    <Button
+      onClick={() => {
+        history.push("/checkout");
+        //! DISPATCH TAKES IN AN ACTION SO PASS IT AN OBJECT ie returned bt calling toggleCartHidden
+        //! and not the toggle Cart hidden as a function
+        dispatch(toggleCartHidden());
+      }}
+    >
+      GO TO CHECKOUT
+    </Button>
   </div>
 );
 const mapStateToProps = createStructuredSelector({
