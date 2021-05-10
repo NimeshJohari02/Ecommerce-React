@@ -1,4 +1,7 @@
 import React from "react";
+import { createStructuredSelector } from "reselect";
+import { selectCurrentUser } from "../../redux/user/user.selector";
+import { SelectCartHidden } from "../../redux/cart/cart.selectors";
 import CartIcon from "../cart-icon/cart-icon.component";
 import { ReactComponent as Logo } from "../../assets/image.svg";
 import { connect } from "react-redux";
@@ -39,8 +42,8 @@ const Header = ({ currentUser, hidden }) => (
 );
 //This is an advance way to destrcture the state ie from user get CurrentUser and from cart get Hidden and since key and value have
 // the same name they can be passed like normal arguments or currentUser:currentUser, hidden:hidden
-const mapStateToProps = ({ user: { currentUser }, cart: { hidden } }) => ({
-  currentUser,
-  hidden,
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
+  hidden: SelectCartHidden,
 });
 export default connect(mapStateToProps)(Header);
