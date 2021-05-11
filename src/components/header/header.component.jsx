@@ -8,34 +8,36 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { auth } from "../../firebase/firebase.utils";
 import CartDropdown from "../cart-dropdown/cart-dropdown.component";
-import "./header.styles.scss";
+import {
+  HeaderContainer,
+  LogoContainer,
+  OptionsContainer,
+  OptionDiv,
+  OptionLink,
+} from "./header.styles";
 const Header = ({ currentUser, hidden }) => (
-  <div className="header">
-    <Link className="logo-container" to="/">
+  <HeaderContainer>
+    <LogoContainer to="/">
       <Logo className="logo" />
-    </Link>
-    <div className="options">
-      <Link className="options" to="/shop">
-        SHOP
-      </Link>
+    </LogoContainer>
+    <OptionsContainer>
+      <OptionLink to="/shop">SHOP</OptionLink>
+      <OptionLink to="/contact">CONTACT</OptionLink>
       {currentUser ? (
-        <div
-          className="options"
+        <OptionDiv
           onClick={() => {
             auth.signOut();
           }}
         >
           Sign Out
-        </div>
+        </OptionDiv>
       ) : (
-        <Link className="options" to="/signin">
-          Sign In
-        </Link>
+        <OptionLink to="/signin">Sign In</OptionLink>
       )}
       <CartIcon />
-    </div>
+    </OptionsContainer>
     {hidden ? null : <CartDropdown />}
-  </div>
+  </HeaderContainer>
 );
 //This is an advance way to destrcture the state ie from user get CurrentUser and from cart get Hidden and since key and value have
 // the same name they can be passed like normal arguments or currentUser:currentUser, hidden:hidden
