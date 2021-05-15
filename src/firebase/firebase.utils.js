@@ -55,3 +55,20 @@ const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({ prompt: "select_account" });
 export const SignInWithGoogle = () => auth.signInWithPopup(provider);
 export default firebase;
+
+export const convertSnapshotToMap = (collections) => {
+  const transformedCollection = collections.docs.map((collection) => {
+    const { title, items } = collection.data();
+    return {
+      routeName: encodeURI(title.toLowerCase()),
+      id: collection.id,
+      title,
+      items,
+    };
+  });
+  console.log(transformedCollection);
+  return transformedCollection.reduce((acc, collection) => {
+    acc[collection.title.toLowerCase()] = collection;
+    return acc;
+  }, {});
+};
